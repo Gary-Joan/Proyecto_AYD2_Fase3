@@ -25,6 +25,8 @@ from Restaurante.views import RestauranteView, DeleteRestauranteView
 from Salon.views import SalonView, DeleteSalonView
 
 urlpatterns = [
+
+    url(r'', include('Restaurante.urls')),
     path('admin/', admin.site.urls),
     #Contrato
     path('Contrato/', ContratoView.as_view(), name='contrato'),
@@ -45,5 +47,5 @@ urlpatterns = [
     path('Salon/', SalonView.as_view(), name='salon'),
     path('Salon/Delete/', DeleteSalonView.as_view(), name='delete_salon'),
     #User
-    url(r'^rest-auth/', include('rest_auth.urls'))
+    #url(r'^rest-auth/', include('rest_auth.urls'))
 ]
