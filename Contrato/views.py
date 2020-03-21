@@ -12,6 +12,10 @@ from Restaurante.models import Restaurante
 from Salon.models import Salon
 from User.models import User
 
+
+
+
+
 # Create your views here.
 class ContratoView(APIView):
     permission_classes = []
