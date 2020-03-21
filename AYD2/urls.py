@@ -20,9 +20,9 @@ from django.conf.urls import url
 from Contrato.views import ContratoView, DeleteContratoView
 from Ingrediente.views import IngredienteView, DeleteIngredienteView
 from Menu.views import MenuView, DeleteMenuView
-from Montaje.views import MontajeView, DeleteMontajeView
+from Montaje.views import MontajeView, DeleteMontajeView, MontajeNewView
 from Restaurante.views import RestauranteView, DeleteRestauranteView, RestauranteNewView
-from Salon.views import SalonView, DeleteSalonView
+from Salon.views import SalonView, DeleteSalonView, SalonNewView
 from User.views import index
 
 urlpatterns = [
@@ -43,15 +43,18 @@ urlpatterns = [
     #Montaje
     path('Montaje/', MontajeView.as_view(), name='montaje'),
     path('Montaje/Delete/', DeleteMontajeView.as_view(), name='delete_montaje'),
+        #Con frontend
+    path('Montaje/all/', MontajeNewView, name='all_montaje'),
     #Restaurante
     path('Restaurante/', RestauranteView.as_view(), name='restaurante'),
     path('Restaurante/Delete/', DeleteRestauranteView.as_view(), name='delete_restaurante'),
-        #Con frontend
-    #path('Restaurante/all/', RestauranteAllView, name='all_restaurant'),
-    path('Restaurante/all/', RestauranteNewView, name='new_restaurant'),
+        #Con frontend    
+    path('Restaurante/all/', RestauranteNewView, name='all_restaurant'),
     #Salon
     path('Salon/', SalonView.as_view(), name='salon'),
     path('Salon/Delete/', DeleteSalonView.as_view(), name='delete_salon'),
+        #Con frontend
+    path('Salon/all/', SalonNewView, name='all_salon'),
     #User
     #url(r'^rest-auth/', include('rest_auth.urls'))
 ]

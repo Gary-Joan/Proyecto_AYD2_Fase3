@@ -4,6 +4,7 @@ from django.shortcuts import render
 from .models import Montaje
 from .serializers import MontajeSerializer
 from rest_framework import status
+from .forms import MontajeForm
 
 # Create your views here.
 class MontajeView(APIView):
@@ -31,3 +32,13 @@ class DeleteMontajeView(APIView):
         queryset = Montaje.objects.get(id=id)
         queryset.delete()
         return Response(status=status.HTTP_200_OK)
+
+def MontajeNewView(request):
+    if request.method == "POST":
+        form = MontajeForm(request.POST)
+        if form.is_valid():
+            restaurante = form.save(commit=False)
+            restaurante.save()
+    form = MontajeForm()
+    queryset = Montaje.objects.filter()
+    return render(request, 'montaje.html', {'form': form,'object_list':queryset})

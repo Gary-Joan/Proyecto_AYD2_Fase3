@@ -4,6 +4,7 @@ from django.shortcuts import render
 from .models import Salon
 from .serializers import SalonSerializer
 from rest_framework import status
+from .forms import SalonForm
 
 # Create your views here.
 class SalonView(APIView):
@@ -33,3 +34,12 @@ class DeleteSalonView(APIView):
         salon.delete()
         return Response(status=status.HTTP_200_OK)
 
+def SalonNewView(request):
+    if request.method == "POST":
+        form = SalonForm(request.POST)
+        if form.is_valid():
+            restaurante = form.save(commit=False)
+            restaurante.save()
+    form = SalonForm()
+    queryset = Salon.objects.filter()
+    return render(request, 'salon.html', {'form': form,'object_list':queryset})
