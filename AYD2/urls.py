@@ -23,9 +23,12 @@ from Menu.views import MenuView, DeleteMenuView
 from Montaje.views import MontajeView, DeleteMontajeView
 from Restaurante.views import RestauranteView, DeleteRestauranteView
 from Salon.views import SalonView, DeleteSalonView
+from User.views import index
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    #/
+    path('', index, name='index'),
     #Contrato
     path('Contrato/', ContratoView.as_view(), name='contrato'),
     path('Contrato/Delete/', DeleteContratoView.as_view(), name='delete_contrato'),
