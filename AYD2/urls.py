@@ -26,6 +26,8 @@ from Salon.views import SalonView, DeleteSalonView
 from User.views import index
 
 urlpatterns = [
+
+    url(r'', include('Restaurante.urls')),
     path('admin/', admin.site.urls),
     #/
     path('', index, name='index'),
@@ -48,5 +50,5 @@ urlpatterns = [
     path('Salon/', SalonView.as_view(), name='salon'),
     path('Salon/Delete/', DeleteSalonView.as_view(), name='delete_salon'),
     #User
-    url(r'^rest-auth/', include('rest_auth.urls'))
+    #url(r'^rest-auth/', include('rest_auth.urls'))
 ]

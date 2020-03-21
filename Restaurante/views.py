@@ -5,6 +5,11 @@ from .models import Restaurante
 from .serializers import RestauranteSerializer
 from rest_framework import status
 
+
+
+def login(request):
+    return render(request, 'login.html', {})
+
 # Create your views here.
 class RestauranteView(APIView):
     permission_classes = []
@@ -31,3 +36,5 @@ class DeleteRestauranteView(APIView):
         queryset = Restaurante.objects.get(id=id)
         queryset.delete()
         return Response(status=status.HTTP_200_OK)
+
+
