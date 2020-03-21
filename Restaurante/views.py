@@ -4,7 +4,7 @@ from django.shortcuts import render
 from .models import Restaurante
 from .serializers import RestauranteSerializer
 from rest_framework import status
-
+from .forms import RestauranteForm
 
 
 def login(request):
@@ -38,3 +38,12 @@ class DeleteRestauranteView(APIView):
         return Response(status=status.HTTP_200_OK)
 
 
+def RestauranteNewView(request):
+    if request.method == "POST":
+        form = RestauranteForm(request.POST)
+        if form.is_valid():
+            restaurante = form.save(commit=False)
+            restaurante.save()
+    form = RestauranteForm()
+    queryset = Restaurante.objects.filter()
+    return render(request, 'restaurante.html', {'form': form,'object_list':queryset})

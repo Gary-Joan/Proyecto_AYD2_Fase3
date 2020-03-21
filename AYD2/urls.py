@@ -21,13 +21,13 @@ from Contrato.views import ContratoView, DeleteContratoView
 from Ingrediente.views import IngredienteView, DeleteIngredienteView
 from Menu.views import MenuView, DeleteMenuView
 from Montaje.views import MontajeView, DeleteMontajeView
-from Restaurante.views import RestauranteView, DeleteRestauranteView
+from Restaurante.views import RestauranteView, DeleteRestauranteView, RestauranteNewView
 from Salon.views import SalonView, DeleteSalonView
 from User.views import index
 
 urlpatterns = [
 
-    url(r'', include('Restaurante.urls')),
+    #url(r'', include('Restaurante.urls')),
     path('admin/', admin.site.urls),
     #/
     path('', index, name='index'),
@@ -46,6 +46,9 @@ urlpatterns = [
     #Restaurante
     path('Restaurante/', RestauranteView.as_view(), name='restaurante'),
     path('Restaurante/Delete/', DeleteRestauranteView.as_view(), name='delete_restaurante'),
+        #Con frontend
+    #path('Restaurante/all/', RestauranteAllView, name='all_restaurant'),
+    path('Restaurante/all/', RestauranteNewView, name='new_restaurant'),
     #Salon
     path('Salon/', SalonView.as_view(), name='salon'),
     path('Salon/Delete/', DeleteSalonView.as_view(), name='delete_salon'),
