@@ -11,6 +11,6 @@ class UserTest(TestCase):
             numero_telefono="12345678"
         ).save()
         usuarios = User.objects.all()
-        usuario = User.objects.get(id=1)
+        usuario1 = User.objects.get(id=1)
         self.assertEquals(usuarios.count(),1)
-        self.assertEquals(usuario.nombre_completo,"Prueba usuario")
+        self.assertEquals(usuario1.nombre_completo,"Prueba usuario")
