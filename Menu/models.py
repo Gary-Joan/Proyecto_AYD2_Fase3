@@ -8,6 +8,10 @@ class Menu(models.Model):
     Ingredientes = models.ManyToManyField(Ingrediente, through='Menu_Ingrediente')
     Precio = models.IntegerField(default=1)
 
+    def __str__(self):             
+        return self.Nombre
+
+
 class Menu_Ingrediente(models.Model):
     Menu = models.ForeignKey(Menu, on_delete=True, related_name='Menu')
     Ingrediente = models.ForeignKey(Ingrediente, on_delete=True, related_name='Ingrediente')
