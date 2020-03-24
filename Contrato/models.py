@@ -14,7 +14,13 @@ class Contrato(models.Model):
     Restaurante = models.ForeignKey(Restaurante, on_delete=True, related_name='Restaurante')
     Salon = models.ForeignKey(Salon, on_delete=True, related_name='Salon')
 
+    def __str__(self):             
+        return self.Cliente
+
 class Contrato_Menu(models.Model):
     Menu = models.ForeignKey(Menu, on_delete=True, related_name='MenuContrato')
     Contrato = models.ForeignKey(Contrato, on_delete=True, related_name='ContratoMenu')
     Cantidad = models.IntegerField(default=1)
+    
+    def __str__(self):             
+        return self.Menu

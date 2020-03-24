@@ -33,7 +33,8 @@ class DeleteRestauranteView(APIView):
 
     def post(self, request):
         id = request.data['Restaurante']
-        queryset = Restaurante.objects.get(id=id)
+
+        queryset = Restaurante.objects.get(id=request.GET.get('DeleteButton'))
         queryset.delete()
         return Response(status=status.HTTP_200_OK)
 
