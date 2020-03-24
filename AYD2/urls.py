@@ -18,7 +18,7 @@ from django.urls import path, include
 from django.conf.urls import url
 
 from Contrato.views import ContratoView, DeleteContratoView
-from Ingrediente.views import IngredienteView, DeleteIngredienteView
+from Ingrediente.views import IngredienteView, DeleteIngredienteView, IngredienteNewView
 from Menu.views import MenuView, DeleteMenuView
 from Montaje.views import MontajeView, DeleteMontajeView, MontajeNewView
 from Restaurante.views import RestauranteView, DeleteRestauranteView, RestauranteNewView
@@ -37,9 +37,12 @@ urlpatterns = [
     #Ingrediente
     path('Ingrediente/', IngredienteView.as_view(), name='ingrediente'),
     path('Ingrediente/Delete/', DeleteIngredienteView.as_view(), name='delete_ingrediente'),
+        #Con frontend    
+    path('Ingrediente/all/', IngredienteNewView, name='all_ingrediente'),
     #Menu
     path('Menu/', MenuView.as_view(), name='menu'),
     path('Menu/Delete/', DeleteMenuView.as_view(), name='delete_menu'),
+    
     #Montaje
     path('Montaje/', MontajeView.as_view(), name='montaje'),
     path('Montaje/Delete/', DeleteMontajeView.as_view(), name='delete_montaje'),
