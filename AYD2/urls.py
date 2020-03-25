@@ -29,7 +29,7 @@ urlpatterns = [
 
     #url(r'', include('Restaurante.urls')),
     path('admin/', admin.site.urls),
-    url(r'^silk/', include('silk.urls', namespace='silk'))
+    url(r'^silk/', include('silk.urls', namespace='silk')),
     #/
     path('', index, name='index'),
     #Contrato
