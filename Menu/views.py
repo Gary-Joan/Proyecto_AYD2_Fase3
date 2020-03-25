@@ -6,17 +6,17 @@ from .serializers import MenuSerializer
 from rest_framework import status
 
 from .forms import MenuForm, MenuIngredienteForm
-
+from silk.profiling.profiler import silk_profile
 # Create your views here.
 class MenuView(APIView):
     permission_classes = []
-
+    @silk_profile(name='Menu')
     def get(self, request):
         id = request.data['Menu']
         queryset = Menu.objects.get(id=id)
         serializer = MenuSerializer(queryset, many = False, context={'request': request})
         return Response({"data":serializer.data}, status=status.HTTP_200_OK)
-
+    @silk_profile(name='Menu2')
     def post(self, request):
         nombre = request.data['Nombre']
         descripcion = request.data['Descripcion']
@@ -35,6 +35,7 @@ class DeleteMenuView(APIView):
         queryset.delete()
         return Response(status=status.HTTP_200_OK)
 
+@silk_profile(name='vista Menu')
 def MenuNewView(request):
     if request.method == "POST":
         form = MenuForm(request.POST)
@@ -45,6 +46,7 @@ def MenuNewView(request):
     queryset = Menu.objects.filter()
     return render(request, 'menu.html', {'form': form,'object_list':queryset})
 
+@silk_profile(name='vista ingredientes')
 def MenuIngredienteNewView(request):
     if request.method == "POST":
         form = MenuIngredienteForm(request.POST)

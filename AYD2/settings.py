@@ -65,7 +65,9 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'AYD2.urls'
-
+SILKY_PYTHON_PROFILER = True
+SILKY_PYTHON_PROFILER_BINARY = True
+SILKY_PYTHON_PROFILER_RESULT_PATH = os.path.join(BASE_DIR, "profiles")
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -89,21 +91,21 @@ WSGI_APPLICATION = 'AYD2.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
-    #    'ENGINE': 'django.db.backends.postgresql',
-    #    'NAME': 'postgres',
-    #    'USER': 'postgres',
-    #    'HOST': 'db',
-    #    'PORT': 5432,
-    # }
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'HOST': '35.238.139.90',
-        'PORT': 5432,
-        'PASSWORD': 'Abc123**'
+       'ENGINE': 'django.db.backends.postgresql',
+       'NAME': 'postgres',
+       'USER': 'postgres',
+       'HOST': 'db',
+       'PORT': 5432,
     }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': 'postgres',
+    #     'USER': 'postgres',
+    #     'HOST': '35.238.139.90',
+    #     'PORT': 5432,
+    #     'PASSWORD': 'Abc123**'
+    # }
 }
 
 

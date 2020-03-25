@@ -5,17 +5,18 @@ from .models import Ingrediente
 from .serializers import IngredienteSerializer
 from rest_framework import status
 from .forms import IngredienteForm
+from silk.profiling.profiler import silk_profile
 
 # Create your views here.
 class IngredienteView(APIView):
     permission_classes = []
-
+    @silk_profile(name="Ingrediente get")
     def get(self, request):
         id = request.data['Ingrediente']
         queryset = Ingrediente.objects.get(id=id)
         serializer = IngredienteSerializer(queryset, many = False, context={'request': request})
         return Response({"data":serializer.data}, status=status.HTTP_200_OK)
-
+    @silk_profile(name="Ingrediente Post")
     def post(self, request):
         nombre = request.data['Nombre']
         descripcion = request.data['Descripcion']        
@@ -32,7 +33,7 @@ class DeleteIngredienteView(APIView):
         queryset = Ingrediente.objects.get(id=id)
         queryset.delete()
         return Response(status=status.HTTP_200_OK)
-
+@silk_profile(name="Ingrediente view all")
 def IngredienteNewView(request):
     if request.method == "POST":
         form = IngredienteForm(request.POST)
