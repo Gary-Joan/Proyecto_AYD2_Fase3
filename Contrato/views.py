@@ -11,6 +11,7 @@ from Montaje.models import Montaje
 from Restaurante.models import Restaurante
 from Salon.models import Salon
 from User.models import User
+from .forms import ContratoForm
 
 # Create your views here.
 class ContratoView(APIView):
@@ -50,3 +51,13 @@ class DeleteContratoView(APIView):
         queryset = Ingrediente.objects.get(id=id)
         queryset.delete()
         return Response(status=status.HTTP_200_OK)
+
+def ContratoNewView(request):
+    if request.method == "POST":
+        form = ContratoForm(request.POST)
+        if form.is_valid():
+            contrato = form.save(commit=False)
+            contrato.save()
+    form = ContratoForm()
+    queryset = Contrato.objects.filter()
+    return render(request, 'contrato.html', {'form': form,'object_list':queryset})

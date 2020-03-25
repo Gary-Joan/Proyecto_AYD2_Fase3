@@ -17,9 +17,9 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls import url
 
-from Contrato.views import ContratoView, DeleteContratoView
-from Ingrediente.views import IngredienteView, DeleteIngredienteView
-from Menu.views import MenuView, DeleteMenuView
+from Contrato.views import ContratoView, DeleteContratoView, ContratoNewView
+from Ingrediente.views import IngredienteView, DeleteIngredienteView, IngredienteNewView
+from Menu.views import MenuView, DeleteMenuView, MenuNewView, MenuIngredienteNewView
 from Montaje.views import MontajeView, DeleteMontajeView, MontajeNewView
 from Restaurante.views import RestauranteView, DeleteRestauranteView, RestauranteNewView
 from Salon.views import SalonView, DeleteSalonView, SalonNewView
@@ -35,12 +35,19 @@ urlpatterns = [
     #Contrato
     path('Contrato/', ContratoView.as_view(), name='contrato'),
     path('Contrato/Delete/', DeleteContratoView.as_view(), name='delete_contrato'),
+        #Con frontend
+    path('Contrato/all/', ContratoNewView, name='all_contrato'),
     #Ingrediente
     path('Ingrediente/', IngredienteView.as_view(), name='ingrediente'),
     path('Ingrediente/Delete/', DeleteIngredienteView.as_view(), name='delete_ingrediente'),
+        #Con frontend    
+    path('Ingrediente/all/', IngredienteNewView, name='all_ingrediente'),
     #Menu
     path('Menu/', MenuView.as_view(), name='menu'),
     path('Menu/Delete/', DeleteMenuView.as_view(), name='delete_menu'),
+        #Con frontend
+    path('Menu/all/', MenuNewView, name='all_menu'),
+    path('Menu/ingrediente/all',MenuIngredienteNewView, name="all_menu_ingrediente"),
     #Montaje
     path('Montaje/', MontajeView.as_view(), name='montaje'),
     path('Montaje/Delete/', DeleteMontajeView.as_view(), name='delete_montaje'),

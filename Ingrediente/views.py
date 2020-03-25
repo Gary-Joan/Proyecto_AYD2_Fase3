@@ -4,6 +4,7 @@ from django.shortcuts import render
 from .models import Ingrediente
 from .serializers import IngredienteSerializer
 from rest_framework import status
+from .forms import IngredienteForm
 
 # Create your views here.
 class IngredienteView(APIView):
@@ -31,3 +32,13 @@ class DeleteIngredienteView(APIView):
         queryset = Ingrediente.objects.get(id=id)
         queryset.delete()
         return Response(status=status.HTTP_200_OK)
+
+def IngredienteNewView(request):
+    if request.method == "POST":
+        form = IngredienteForm(request.POST)
+        if form.is_valid():
+            ingrediente = form.save(commit=False)
+            ingrediente.save()
+    form = IngredienteForm()
+    queryset = Ingrediente.objects.filter()
+    return render(request, 'ingrediente.html', {'form': form,'object_list':queryset})

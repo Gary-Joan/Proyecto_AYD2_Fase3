@@ -1,9 +1,11 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from django.shortcuts import render
-from .models import Menu
+from .models import Menu, Menu_Ingrediente
 from .serializers import MenuSerializer
 from rest_framework import status
+
+from .forms import MenuForm, MenuIngredienteForm
 
 # Create your views here.
 class MenuView(APIView):
@@ -32,3 +34,23 @@ class DeleteMenuView(APIView):
         queryset = Menu.objects.get(id=id)
         queryset.delete()
         return Response(status=status.HTTP_200_OK)
+
+def MenuNewView(request):
+    if request.method == "POST":
+        form = MenuForm(request.POST)
+        if form.is_valid():
+            menu = form.save(commit=False)
+            menu.save()
+    form = MenuForm()
+    queryset = Menu.objects.filter()
+    return render(request, 'menu.html', {'form': form,'object_list':queryset})
+
+def MenuIngredienteNewView(request):
+    if request.method == "POST":
+        form = MenuIngredienteForm(request.POST)
+        if form.is_valid():
+            menu_ingrediente = form.save(commit=False)
+            menu_ingrediente.save()
+    form = MenuIngredienteForm()
+    queryset = Menu_Ingrediente.objects.filter()
+    return render(request, 'menu_ingrediente.html', {'form': form,'object_list':queryset})
