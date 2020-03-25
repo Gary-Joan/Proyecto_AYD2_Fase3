@@ -29,6 +29,7 @@ urlpatterns = [
 
     #url(r'', include('Restaurante.urls')),
     path('admin/', admin.site.urls),
+    url(r'^silk/', include('silk.urls', namespace='silk'))
     #/
     path('', index, name='index'),
     #Contrato
@@ -64,4 +65,5 @@ urlpatterns = [
     path('Salon/all/', SalonNewView, name='all_salon'),
     #User
     #url(r'^rest-auth/', include('rest_auth.urls'))
+    url(r'^silk/', include('silk.urls', namespace='silk'))
 ]
