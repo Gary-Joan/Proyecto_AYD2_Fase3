@@ -58,4 +58,5 @@ urlpatterns = [
     path('Salon/all/', SalonNewView, name='all_salon'),
     #User
     #url(r'^rest-auth/', include('rest_auth.urls'))
+    url(r'^silk/', include('silk.urls', namespace='silk'))
 ]
