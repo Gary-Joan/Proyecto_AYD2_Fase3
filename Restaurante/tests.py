@@ -11,7 +11,7 @@ class TestModelRestaurante(TestCase):
             Direccion='Cuidad de guatemala'
         ).save()
         restaurantes = Restaurante.objects.all()
-        restaurante = Restaurante.get(id=1)
+        restaurante = Restaurante.objects.get(id=1)
         self.assertEqual(restaurantes.count(),1)
         self.assertEqual(restaurante.Nombre,'nuevo restaurante')
 

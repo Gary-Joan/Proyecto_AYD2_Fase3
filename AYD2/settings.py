@@ -87,21 +87,21 @@ WSGI_APPLICATION = 'AYD2.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'HOST': 'db',
-        'PORT': 5432,
-    }
     #'default': {
     #    'ENGINE': 'django.db.backends.postgresql',
     #    'NAME': 'postgres',
     #    'USER': 'postgres',
-    #    'HOST': '35.238.139.90',
+    #    'HOST': 'db',
     #    'PORT': 5432,
-    #    'PASSWORD': 'Abc123**'
     #}
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'HOST': '35.238.139.90',
+        'PORT': 5432,
+        'PASSWORD': 'Abc123**'
+    }
 }
 
 
