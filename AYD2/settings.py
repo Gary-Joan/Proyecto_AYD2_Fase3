@@ -27,7 +27,7 @@ SECRET_KEY = '70jeh8d9ubwgdgg69)-9_)rq-jx^&mw-nps^31ub(i(ebdzv6g'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['proyecto-ayd2.apps.us-west-1.starter.openshift-online.com','0.0.0.0','localhost']
+ALLOWED_HOSTS = ['proyecto-ayd.apps.us-west-1.starter.openshift-online.com','0.0.0.0','localhost']
 
 
 # Application definition
