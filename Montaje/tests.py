@@ -13,6 +13,7 @@ class TestModelMontaje(TestCase):
         montaje = Montaje.objects.get(id=1)
         self.assertEquals(montajes.count(),1)
         self.assertEquals(montaje.Titulo,'montaje de titulo')
+        self.assertEquals(str(montaje),'montaje de titulo')
 
 class TestFormMontaje(SimpleTestCase):
 

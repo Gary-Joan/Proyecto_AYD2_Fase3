@@ -3,6 +3,7 @@ from Restaurante.models import Restaurante
 from Restaurante.forms import RestauranteForm
 # Create your tests here.
 
+
 class TestModelRestaurante(TestCase):
 
     def Test_Restaurante_create(self):
@@ -12,13 +13,14 @@ class TestModelRestaurante(TestCase):
         ).save()
         restaurantes = Restaurante.objects.all()
         restaurante = Restaurante.objects.get(id=1)
-        self.assertEqual(restaurantes.count(),1)
-        self.assertEqual(restaurante.Nombre,'nuevo restaurante')
+        self.assertEqual(restaurantes.count(), 1)
+        self.assertEqual(restaurante.Nombre, 'nuevo restaurante')
+        self.assertEquals(str(restaurante), 'nuevo restaurante')
+
 
 class TestFormRestaurante(SimpleTestCase):
 
     def test_form_restaurante(self):
         form = RestauranteForm(data={})
         self.assertFalse(form.is_valid())
-        self.assertEqual(len(form.errors),2)
-        
+        self.assertEqual(len(form.errors), 2)

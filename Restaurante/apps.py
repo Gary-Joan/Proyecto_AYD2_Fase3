@@ -1,5 +1,5 @@
-from django.apps import AppConfig
+from django.apps import AppConfig  # pragma: no cover
 
 
-class RestauranteConfig(AppConfig):
-    name = 'Restaurante'
+class RestauranteConfig(AppConfig): # pragma: no cover
+    name = 'Restaurante'            # pragma: no cover

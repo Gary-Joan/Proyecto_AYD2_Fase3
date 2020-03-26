@@ -13,3 +13,4 @@ class TestModelIngrediente(TestCase):
         self.assertEquals(ingredientes.count(),1)
         self.assertEquals(ingrediente.Nombre,'nombre de ingrediente')
         self.assertEquals(ingrediente.id,1)
+        self.assertEquals(str(ingrediente),'nombre de ingrediente')

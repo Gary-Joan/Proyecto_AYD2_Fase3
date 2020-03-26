@@ -2,6 +2,8 @@ from django.test import TestCase
 from User.models import User
 
 # Create your tests here.
+
+
 class UserTest(TestCase):
 
     def test_create_user(self):
@@ -12,5 +14,6 @@ class UserTest(TestCase):
         ).save()
         usuarios = User.objects.all()
         usuario1 = User.objects.get(id=1)
-        self.assertEquals(usuarios.count(),1)
-        self.assertEquals(usuario1.nombre_completo,"Prueba usuario")
+        self.assertEquals(usuarios.count(), 1)
+        self.assertEquals(usuario1.nombre_completo, "Prueba usuario")
+        self.assertEquals(str(usuario1), "Prueba usuario")
