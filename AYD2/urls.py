@@ -41,7 +41,7 @@ urlpatterns = [
     path('Ingrediente/', IngredienteView.as_view(), name='ingrediente'),
     path('Ingrediente/Delete/', DeleteIngredienteView.as_view(), name='delete_ingrediente'),
         #Con frontend    
-    path('Ingrediente/all/', IngredienteNewView, name='all_ingrediente'),
+    path('Ingrediente/all/', IngredienteNewView.as_view(), name='all_ingrediente'),
     #Menu
     path('Menu/', MenuView.as_view(), name='menu'),
     path('Menu/Delete/', DeleteMenuView.as_view(), name='delete_menu'),
@@ -57,7 +57,7 @@ urlpatterns = [
     path('Restaurante/', RestauranteView.as_view(), name='restaurante'),
     path('Restaurante/Delete/', DeleteRestauranteView.as_view(), name='delete_restaurante'),
         #Con frontend    
-    path('Restaurante/all/', RestauranteNewView, name='all_restaurant'),
+    path('Restaurante/all/', RestauranteNewView.as_view(), name='all_restaurant'),
     #Salon
     path('Salon/', SalonView.as_view(), name='salon'),
     path('Salon/Delete/', DeleteSalonView.as_view(), name='delete_salon'),
