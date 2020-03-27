@@ -27,7 +27,7 @@ SECRET_KEY = '70jeh8d9ubwgdgg69)-9_)rq-jx^&mw-nps^31ub(i(ebdzv6g'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1','0.0.0.0','localhost']
+ALLOWED_HOSTS = ['proyecto-ayd.apps.us-west-1.starter.openshift-online.com','0.0.0.0','localhost']
 
 
 # Application definition
@@ -91,18 +91,21 @@ WSGI_APPLICATION = 'AYD2.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 DATABASES = {
-    #'default': {
-    #    'ENGINE': 'django.db.backends.sqlite3',
-    #    'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    #}
-     'default': {
-         'ENGINE': 'django.db.backends.postgresql',
-         'NAME': 'postgres',
-         'USER': 'postgres',
-         'HOST': '35.238.139.90',
-         'PORT': 5432,
-         'PASSWORD': 'Abc123**'
-     }
+    'default': {
+       'ENGINE': 'django.db.backends.postgresql',
+       'NAME': 'postgres',
+       'USER': 'postgres',
+       'HOST': 'db',
+       'PORT': 5432,
+    }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': 'postgres',
+    #     'USER': 'postgres',
+    #     'HOST': '35.238.139.90',
+    #     'PORT': 5432,
+    #     'PASSWORD': 'Abc123**'
+    # }
 }
 
 
